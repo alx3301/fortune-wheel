@@ -54,7 +54,7 @@ body {
 
 #attempts {
     position: absolute;
-    bottom: 20%;
+    bottom: 10%;
     left: 50%;
     transform: translateX(-50%);
     color: #fff;
@@ -152,7 +152,7 @@ body {
     }
 
     #attempts {
-        top: 68%;
+        top: 70%;
         font-size: 3vmin;
     }
 
