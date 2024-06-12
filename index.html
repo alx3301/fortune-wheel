@@ -7,18 +7,20 @@
     <title>Fortune Wheel 🎰</title>
 </head>
 <body>
-    <span class="arrow"></span>
-    <div class="container">
-        <button id="spin" aria-label="Spin Wheel"></button>
-        <div class="one">50 CZK</div>
-        <div class="two">0 CZK</div>
-        <div class="three">100 CZK</div>
-        <div class="four">20 CZK</div>
-        <div class="five">30 CZK</div>
-        <div class="six">10 CZK</div>
-        <div class="seven">1000 CZK</div>
+    <div class="wheel-container">
+        <div class="arrow"></div>
+        <div class="wheel">
+            <div class="one">50 CZK</div>
+            <div class="two">0 CZK</div>
+            <div class="three">100 CZK</div>
+            <div class="four">20 CZK</div>
+            <div class="five">30 CZK</div>
+            <div class="six">10 CZK</div>
+            <div class="seven">1000 CZK</div>
+            <button class="spin"></button>
+        </div>
+        <span class="attempts">Attempts left: <span id="attempt-count">3</span></span>
     </div>
-    <span id="attempts">Attempts left: <span id="attempt-count">5</span></span>
-    <script src="script.js" defer></script>
+    <script src="wheel.js" defer></script>
 </body>
 </html>

@@ -3,164 +3,124 @@
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    background: #000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     height: 100vh;
+    display: flex;
     overflow: hidden;
+    align-items: center;
+    margin: 0; padding: 0;
+    justify-content: center;
+    background-color: #000000;
 }
 
-.container {
-    width: 50vmin; /* 50% от меньшего размера экрана */
-    height: 50vmin;
-    background-color: #fff;
-    border-radius: 50%;
-    border: 1.5vmin solid #fff; /* Пропорциональный размер границы */
+.wheel-container {
+    display: flex;
     position: relative;
-    transition: transform 5s ease;
+    border-radius: 10%;
+    align-items: center;
+    justify-content: center;
+    width: 300px; height: 300px;
+    background-color: #ffffff;
+}
+
+.wheel {
+    color: #ffffff;
+    font-family: sans-serif;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    font-size: 2vmin;
+    font-weight: bold;
+    text-align: center;
+    padding: 40%;
     overflow: hidden;
-    --rotation: 0deg;
-    transform: rotate(var(--rotation));
+    position: relative;
+    border-radius: 50%;
+    background-color: #000000;
+    width: 250px; height: 250px;
+    border: 15px solid #000000;
+}
+
+.wheel div {
+    width: 55%;
+    height: 55%;
+    bottom: 50%;
+    left: 22.5%;
+    padding: 10%;
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    transform-origin: bottom;
+    transform: translateX(-50%);
+    clip-path: polygon(100% 0, 50% 100%, 0 0);
+}
+
+
+.wheel .one {
+    left: 50%;
+    background-color: #ff0000;
+}
+
+.wheel .two {
+    transform: rotate(51deg);
+    background-color: #ff7f00;
+}
+
+.wheel .three {
+    transform: rotate(102deg);
+    background-color: #ffff00;
+}
+
+.wheel .four {
+    transform: rotate(154deg);
+    background-color: #00ff00;
+}
+
+.wheel .five {
+    transform: rotate(205deg);
+    background-color: #0000ff;
+}
+
+.wheel .six {
+    transform: rotate(257deg);
+    background-color: #4b0082;
+}
+
+.wheel .seven {
+    transform: rotate(308deg);
+    background-color: #9400d3;
+}
+
+.spin {
+    left: 36%;
+    bottom: 36%;
+    cursor: pointer;
+    border-radius: 50%;
+    position: absolute;
+    align-items: center;
+    background-size: cover;
+    width: 30%; height: 30%;
+    justify-content: center;
+    border: 10px solid #fff;
+    background-color: #e2e2e2;
+    background-image: url("logo.jpg");
+}
+
+.arrow {
+    top: -10%;
+    left: 50%;
+    position: absolute;
+    transform: translateX(-50%);
+    border-top: 15px solid #fff;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+}
+
+.attempts {
+    bottom: -10%;
+    color: #fff;
+    position: absolute;
+    font-weight: bold;
 }
 
 .blur-animation {
     filter: blur(2px);
     transition: filter 2s ease-out;
 }
-
-.container div {
-    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
-    height: 53%;
-    width: 25vmin; /* Пропорциональный размер ширины */
-    position: absolute;
-    clip-path: polygon(100% 0, 50% 100%, 0 0);
-    transform: translateX(-50%);
-    transform-origin: bottom;
-    text-align: center;
-    display: flex;
-    align-items: flex-start;
-    top: -2vmin;
-    padding: 10%;
-    justify-content: center;
-    font-size: 3vmin; /* Пропорциональный размер шрифта */
-    font-weight: bold;
-    font-family: sans-serif;
-    color: #fff;
-    left: 11vmin; /* Пропорциональное смещение */
-}
-
-#attempts {
-    position: absolute;
-    bottom: 10%;
-    left: 50%;
-    transform: translateX(-50%);
-    color: #fff;
-    font-size: 2vmin; /* Пропорциональный размер шрифта */
-}
-
-.container .one {
-    background-color: #ff0000;
-    left: 50%;
-}
-
-.container .two {
-    background-color: #ff7f00;
-    transform: rotate(51deg);
-}
-
-.container .three {
-    background-color: #ffff00;
-    transform: rotate(102deg);
-}
-
-.container .four {
-    background-color: #00ff00;
-    transform: rotate(154deg);
-}
-
-.container .five {
-    background-color: #0000ff;
-    transform: rotate(205deg);
-}
-
-.container .six {
-    background-color: #4b0082;
-    transform: rotate(257deg);
-}
-
-.container .seven {
-    background-color: #9400d3;
-    transform: rotate(308deg);
-}
-
-.arrow {
-    position: absolute;
-    top: 20%;
-    z-index: 10;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 0;
-    border-left: 2vmin solid transparent;
-    border-right: 2vmin solid transparent;
-    border-top: 3vmin solid #fff; /* Пропорциональный размер стрелки */
-}
-
-#spin {
-    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transform: translate(-50%, -50%);
-    z-index: 10;
-    background-color: #e2e2e2;
-    text-transform: uppercase;
-    border: 1.5vmin solid #fff; /* Пропорциональный размер границы */
-    color: #fff;
-    width: 17vmin; /* Пропорциональный размер кнопки */
-    height: 17vmin;
-    border-radius: 50%;
-    cursor: pointer;
-    outline: none;
-    letter-spacing: 1px;
-    background-image: url('images/logo.jpg');
-    background-size: cover;
-}
-
-/* Медиазапросы для более точной настройки на разных устройствах */
-@media (max-width: 600px) {
-    .container {
-        width: 70vmin;
-        height: 70vmin;
-    }
-
-    .container div {
-        width: 35vmin;
-        font-size: 4vmin;
-        left: 16vmin;
-    }
-
-    #spin {
-        width: 25vmin;
-        height: 25vmin;
-    }
-
-    #attempts {
-        top: 70%;
-        font-size: 3vmin;
-    }
-
-    .arrow {
-        top: 30%;
-        border-left: 3vmin solid transparent;
-        border-right: 3vmin solid transparent;
-        border-top: 4vmin solid #fff;
-    }
-}
-
