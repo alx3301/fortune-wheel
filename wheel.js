@@ -48,11 +48,10 @@ document.addEventListener("DOMContentLoaded", function() {
                             defaultAudio.play();
                     }
 
-                    alert("You win: " + prize);
                     isSpinning = false;
                 }, { once: true });
             } else if (attemptsLeft <= 0) {
-                alert("You have no more attempts left!");
+                console.log("You have no more attempts left!");
             }
         });
     });
